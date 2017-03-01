@@ -25,7 +25,7 @@ Choose your namespace & application name.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.52.25%20PM.png)
 
-Use Gradle wrapper and set JAVA to 1.7 (GAE standard does not support Java 8 yet - March 2017)
+Use Gradle wrapper and **set JAVA to 1.7 (GAE standard does not support Java 8 yet - March 2017)**
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.52.45%20PM.png)
 
@@ -37,7 +37,7 @@ IDEA has created a blank build.gradle file for us.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.53.41%20PM.png)
 
-Modify the default build.gradle with the dependencies you plan to use (you can add / remove later as required). Do not add Java, GWT or GAE dependencies as the app module will include those. 
+Modify the default build.gradle with the dependencies you plan to use (you can add / remove later as required). **Do not add Java, GWT or GAE dependencies as the app module will include those.**   
 
 Below is an example build.gradle file
 
@@ -99,21 +99,25 @@ dependencies {
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.54.52%20PM.png)
 
-Open the Gradle tab and select build to copy the libraries to the project.
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.55.24%20PM.png)
+Open the Gradle tab and select **build** to copy the libraries to the project.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.55.50%20PM.png)
 
+Now let's add the application module.
+
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.56.15%20PM.png)
 
+Check Google App Engine and browse to your local GAE SDK. Note that GAE standard only supports up to GAE SDK 1.9.42
+
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.56.51%20PM.png)
+
+Check Google Web Toolkit and browse to your local GWT SDK. Note that GAE standard only supports up to GWT2.8.0beta1 
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.57.20%20PM.png)
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.57.45%20PM.png)
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.58.06%20PM.png)
+When done right-click the App module and select Module Settings.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.58.23%20PM.png)
 
