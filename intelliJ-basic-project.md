@@ -17,7 +17,7 @@ layout: default
 
 Create a new project in IntelliJ IDEA.
 
-![]({{ site.baseurl }}/assets/images/Screen1.png
+![]({{ site.baseurl }}/assets/images/Screen1.png)
 
 Select Gradle. Uncheck all boxes.
 
