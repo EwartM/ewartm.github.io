@@ -13,9 +13,9 @@ layout: default
 1. Gradle 3.1
 1. IntelliJ IDEA Ultimate 2016.3
 
-Create a new project.
+Create a new project in IntelliJ IDEA.
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.51.05%20PM.png
+![]({{ site.baseurl }}/assets/images/Screen1.png
 
 Select Gradle. Uncheck all boxes.
 
@@ -119,19 +119,25 @@ Check Google Web Toolkit and browse to your local GWT SDK. Note that GAE standar
 
 When done right-click the App module and select Module Settings.
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.58.23%20PM.png)
-
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.58.49%20PM.png)
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.59.06%20PM.png)
+Click **+** and then **Library** to add the dependencies from our parent module (loaded by the build.gradle) that our App module will need.  
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.59.21%20PM.png)
 
+Add all libraries except the Application Server Libraries.
+
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.59.35%20PM.png)
+
+Now you'll see the libraries listed as part of our App build.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.00.00%20PM.png)
 
+Select **debug** to start a local GAE server where we can test that App works.
+
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.00.33%20PM.png)
+
+Add '/app.html' to the path and select App:war exploded as the artifact to deploy.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.01.01%20PM.png)
 
@@ -139,11 +145,18 @@ When done right-click the App module and select Module Settings.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.01.35%20PM.png)
 
+If all goes well you should have 2 URLs in the console. The first is where our App is served. The second gives access to the local Datastore instance.
+
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.02.46%20PM.png)
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.03.01%20PM.png)
 
+You should be able to set a breakpoint in the server side code. 
+The client code doesn't support breakpoints for some reason. You can use Chrome > More Tools > Developer Tools to debug the front-end.
+
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.03.23%20PM.png)
+
+
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.15%20PM.png)
 
