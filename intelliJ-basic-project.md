@@ -15,7 +15,7 @@ layout: default
 
 ### Large image
 
-![](https://github.com/EwartM/ewartm.github.io/blob/master/assets/images/Screen%20Shot%202017-03-01%20at%201.51.05%20PM.png)
+![](https://github.com/EwartM/ewartm.github.io/blob/master/assets/images/Screen1.png)
 
 ### Large image
 
