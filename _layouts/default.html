@@ -33,6 +33,11 @@
 
         <section id="main_content">
           {{ content }}
+          
+          {% if page.comments %} 
+          	{% include disqus.html %}
+          {% endif %}
+          
         </section>
 
         <footer>
