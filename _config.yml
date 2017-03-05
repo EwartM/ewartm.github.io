@@ -1,4 +1,6 @@
 title: GWT from scratch
 description: Using Google Web Toolkit (GWT) on Google App Engine (GAE)
+layout: default
+comments: true
 show_downloads: true
 google_analytics:
