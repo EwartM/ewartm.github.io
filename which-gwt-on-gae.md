@@ -8,8 +8,9 @@ published: true
 As of March 2017, the GAE standard environment still doesn't support Java 8  
 To use Java 8 and the newer GWT libraries we could use GAE flexible environment  
 Below we'll look at the pros and cons of each approach  
-
-> GAE Standard
+    
+#### [](#header-2)GAE Standard
+    
 #### [](#header-3)Pros  
 - **Straightforward deploy** in IntelliJ IDEA
 - **Free App Engine quota**
@@ -30,8 +31,9 @@ Java 7 only. Google have been talking about GAE Java 8 support since 2015...
     - Split your code into 2 projects/modules, compiled in 2 phases
     	- https://discuss.gradle.org/t/building-a-multi-module-gwt-project-with-gradle/3707
     	- https://blog.oio.de/2014/09/05/avoid-multi-module-builds-gradle/
-
-> GAE Flexible (aka managed VM)
+    
+#### [](#header-2)GAE Flexible (aka managed VM)
+    
 #### [](#header-3)Pros  
 - Supports **Java 8**  
 - **Faster?** 
