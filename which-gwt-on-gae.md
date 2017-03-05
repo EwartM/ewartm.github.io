@@ -5,7 +5,7 @@ published: true
 
 # [](#header-1)Choosing a version of GWT for GAE
 
-As of March 2017, the Google App Engine standard environment still doesn't support Java 8  
+As of March 2017, the GAE standard environment still doesn't support Java 8  
 To use Java 8 and the newer GWT libraries we could use GAE flexible environment  
 Below we'll look at the pros and cons of each approach  
 
