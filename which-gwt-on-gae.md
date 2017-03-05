@@ -29,7 +29,7 @@ Java 7 only. Google have been talking about GAE Java 8 support since 2015...
     - Use JDK 8 and retrolambda: 
     	- [https://github.com/orfjackal/retrolambda](https://github.com/orfjackal/retrolambda)
     - Split your code into 2 projects/modules, compiled in 2 phases
-    	- [https://discuss.gradle.org/t/building-a-multi-module-gwt-project-with-gradle/3707](https://discuss.gradle.org/t/building-a-multi-module-gwt-project-with-gradle/3707)
+    	- [https://discuss.gradle.org/t/building-a-multi-module-gwt-project-with-gradle/3707](https://discuss.gradle.org/t/building-a-multi-module-gwt-project-with-gradle/3707)  
     	- [https://blog.oio.de/2014/09/05/avoid-multi-module-builds-gradle/](https://blog.oio.de/2014/09/05/avoid-multi-module-builds-gradle/)
     
 #### [](#header-2)GAE Flexible (aka managed VM)
