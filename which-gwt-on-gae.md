@@ -11,7 +11,7 @@ Below we'll look at the pros and cons of each approach
 #### [](#header-2)GAE Standard
 
 #### [](#header-3)Cons
-- Java 7 only. Google have been talking about GAE Java 8 support since 2015...
+#### [](#header-4)Java 7 only. Google have been talking about GAE Java 8 support since 2015...
   - Old libraries only
     - GAE max 1.9.42
     - GWT max 2.8.0-beta1
@@ -26,18 +26,19 @@ Below we'll look at the pros and cons of each approach
  
 #### [](#header-2)GAE Flexible (aka managed VM)
 #### [](#header-3)Pros
-- Supports Java 8
-- Faster (I haven't really tested this but on the surface my login goes much faster on flexible)
-- New versions of libraries
+#### [](#header-4)Supports Java 8
+#### [](#header-4)Faster (I haven't really tested this but on the surface my login goes much faster on flexible)
+#### [](#header-4)New versions of libraries
 #### [](#header-3)Cons
-- No free quota
+#### [](#header-4)No free quota
   - To reduce costs make sure app.yaml specifies 1 CPU 
-- No EU hosting [yet]
-- No task queuing in GAE Flex (unlike GAE standard)
+#### [](#header-4)No EU hosting [yet]
+#### [](#header-4)No task queuing in GAE Flex (unlike GAE standard)
   - https://groups.google.com/forum/#!topic/google-appengine/C9Sv4XkyHG4
   - https://groups.google.com/forum/?fromgroups#!searchin/objectify-appengine/flexible%7Csort:relevance/objectify-appengine/_8qQicEYg7E/0_msm1v3AAAJ
-- Manually manage static files – to blob?
-- Objectify doesn't work because it uses GAE standard API (big maybe on migration from Objectify dev)
+#### [](#header-4)Manually manage static files – to blob?
+#### [](#header-4)Objectify doesn't work because it uses GAE standard API (
+  - Objectify developer puts a big maybe on migration
   - Workaround is to use Cloud Datastore REST api (https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-datastore)
     - via Catatumbo (Objectify doesn't work on GAE Flex [yet])
 
