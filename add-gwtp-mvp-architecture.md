@@ -9,8 +9,8 @@
 1. GAE 1.9.42
 1. Gradle
 1. IntelliJ IDEA Ultimate 2016.3
-1. **GWTP 1.5.3** Model View Presenter architecture
-1. **Guice 3.0** Dependency Injection
+1. **GWTP 1.5.3 Model View Presenter architecture**
+1. **Guice 3.0 Dependency Injection**
 
 #### [](#header-2)Prerequisite
 
@@ -54,7 +54,8 @@ Select 'Slot' and browse to the Application presenter's SLOT_APPLICATION
 check 'UI Handlers'   
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.16.37 PM.png)
 
-
+#### [](#header-2)GIN 'ClientModule' file
+Whenever you create a new presenter be sure to add an 'install' line for it here 
 
 Create a New > Package (folder) called 'gin' under App.src.com.example.app.client
 Create a New > Java class called 'ClientModule' with the content below in the 'gin' folder
