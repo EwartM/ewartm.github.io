@@ -39,10 +39,10 @@ public class NameTokens {
 #### [](#header-2)'Application' presenter  
 This presenter will be the base presenter inside which all other will display  
 
-Add a new Presenter via New > 'create GWTP Presenter with View'  
+Create a new Presenter via New > 'create GWTP Presenter with View'  
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 8.21.34 PM.png)
 
-Create a new nested presenter called Application under ..client.ui  
+Name the presenter Application and create it in the client.ui package
 Uncheck 'Place' and check 'UI Handlers'    
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.09.42 PM.png)  
 
@@ -78,9 +78,9 @@ Save all files
 #### [](#header-2)'Home' presenter  
 This presenter will be the default page   
 
-Add a new Presenter via New > 'create GWTP Presenter with View'  
+Add a new Presenter via New > 'create GWTP Presenter with View'    
 
-Create a new nested presenter called Home under **..client.ui.home**  
+Name the presenter Home and create it in the **..client.ui.home** package  
 Check 'Place' and fill 'HOME'  
 Select 'Slot' and browse to the Application presenter's SLOT_APPLICATION  
 check 'UI Handlers'   
