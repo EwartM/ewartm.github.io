@@ -315,4 +315,4 @@ Edit **app.html** found under App.web
 </html>
 ```
 
-[Previous - basic project](intelliJ-basic-project) [Next - adding Bootstrapper & Login presenter](bootstrapper-and-login)
+[Previous - basic project](intelliJ-basic-project)    [Next - adding Bootstrapper & Login presenter](bootstrapper-and-login)
