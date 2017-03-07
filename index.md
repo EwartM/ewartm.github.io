@@ -3,7 +3,9 @@ layout: default
 published: true
 ---
 
-# [](#header-1)Getting started with Google Web Toolkit (GWT) on Google App Engine (GAE)    
+# [](#header-1)GWT on GAE 
+
+> In these tutorials I'll be building an enterprise GWT application step by step  
     
   
 #### [](#header-2)Platform decisions  
