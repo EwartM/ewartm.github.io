@@ -67,7 +67,7 @@ This presenter will be the base presenter inside which all other will display
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.09.42 PM.png)
 
 Edit 'app.html' under App.web  
-```html
+```HTML
 <html>
 <head>
 
