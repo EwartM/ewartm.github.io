@@ -319,4 +319,5 @@ This version of the code should produce
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 10.56.37 PM.png)
 
 
-[Previous - basic project](intelliJ-basic-project)    [Next - adding Bootstrapper & Login presenter](bootstrapper-and-login)
+[Previous - basic project](intelliJ-basic-project)    
+[Next - adding Bootstrapper & Login presenter](bootstrapper-and-login)
