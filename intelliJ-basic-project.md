@@ -14,6 +14,8 @@ published: true
 1. Gradle
 1. IntelliJ IDEA Ultimate 2016.3
 
+[Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/97ffc2f099c63320bb7ae41a75caca793c4e283e)
+
 #### [](#header-2)Prerequisite
 
 [Enable Gradle support in IntelliJ IDEA](https://www.jetbrains.com/help/idea/2016.3/gradle.html#d285963e15)
