@@ -5,7 +5,7 @@ published: true
 
 # [](#header-1)GWT on GAE 
 
-> In these tutorials I'll be building an enterprise GWT application step by step  
+> Step by step tutorials for building an enterprise GWT application   
     
   
 #### [](#header-2)Platform decisions  
