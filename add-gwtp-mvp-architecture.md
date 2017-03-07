@@ -18,7 +18,7 @@
 [Download & install the GWTP IntelliJ plugin](https://plugins.jetbrains.com/plugin/7318-gwt-platform-gwtp-intellij-idea-plugin)  
 IntelliJ IDEA > Settings > Plugins > Install from file
 
-#### [](#header-2)Create the project and parent module
+#### [](#header-2)Add the GWTP Presenters and Gin components 
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 7.41.08 PM.png)
 
