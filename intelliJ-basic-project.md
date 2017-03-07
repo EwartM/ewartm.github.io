@@ -11,8 +11,12 @@ published: true
 1. Java 7
 1. GWT2.8.0beta1
 1. GAE 1.9.42
-1. Gradle 3.1
+1. Gradle
 1. IntelliJ IDEA Ultimate 2016.3
+
+#### [](#header-2)Prerequisite
+
+[Enable Gradle support in IntelliJ IDEA](https://www.jetbrains.com/help/idea/2016.3/gradle.html#d285963e15)
 
 #### [](#header-2)Create the project and parent module
 
