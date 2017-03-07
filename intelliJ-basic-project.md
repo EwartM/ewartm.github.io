@@ -196,9 +196,8 @@ Run the **deploy** task. You'll need a GAE project set up to receive the applica
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.08.50%20PM.png)
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.12.45%20PM.png)
-
-
-
-
+    
+    
+[Next we'll add the GWTP MVP framework](add-gwtp-mvp-architecture)
 
 ![](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
