@@ -1,8 +1,8 @@
 # [](#header-1)Add GWTP Model View Presenter (MVP) architecture
 
-> We'll use GWTP to implement a Model View Presenter architecture
-> GWTP will help us with browser history management, lazy loading, code splitting and security while making the code more scalable
-> GWTP uses Guice / Gin for Dependency Injection which helps us with reading, testing and reusing code
+> We'll use GWTP to implement a Model View Presenter architecture  
+> GWTP will help us with browser history management, lazy loading, code splitting and security while making the code more scalable  
+> GWTP uses Guice / Gin for Dependency Injection which helps us with reading, testing and reusing code  
 
 1. Java 7
 1. GWT2.8.0beta1
