@@ -18,7 +18,7 @@
 [Download & install the GWTP IntelliJ plugin](https://plugins.jetbrains.com/plugin/7318-gwt-platform-gwtp-intellij-idea-plugin)  
 IntelliJ IDEA > Settings > Plugins > Install from file
 
-#### [](#header-2)Add the GWTP Presenters and Gin components 
+#### [](#header-2)Create the NameTokens file
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 7.41.08 PM.png)
 
@@ -30,6 +30,31 @@ package com.example.app.client.place;
 public class NameTokens {
 }
 ```
+
+#### [](#header-2)Create the 'Application' presenter  
+This presenter will be the base presenter inside which all other will display  
+
+Add a new Presenter via New > 'create GWTP Presenter with View'  
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 8.21.34 PM.png)
+
+Call the new nested presenter called Application under ..client.ui  
+Uncheck 'Place' and check 'UI Handlers'    
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.09.42 PM.png)  
+
+Save all files    
+
+#### [](#header-2)Create the 'Home' presenter  
+This presenter will be the default page   
+
+Add a new Presenter via New > 'create GWTP Presenter with View'  
+
+Call the new nested presenter called Home under **..client.ui.home** 
+Check 'Place' and fill 'HOME' 
+Select 'Slot' and browse to the Application presenter's SLOT_APPLICATION
+check 'UI Handlers'    
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.16.37 PM.png)
+
+
 
 Create a New > Package (folder) called 'gin' under App.src.com.example.app.client
 Create a New > Java class called 'ClientModule' with the content below in the 'gin' folder
@@ -57,14 +82,6 @@ public class ClientModule extends AbstractPresenterModule {
     }
 }
 ```
-
-Add a new Presenter via New > 'create GWTP Presenter with View'  
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 8.21.34 PM.png)
-
-Call the new nested presenter called Application under ..client.ui  
-Uncheck 'Place' and check 'UI Handlers'  
-This presenter will be the base presenter inside which all other will display  
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.09.42 PM.png)
 
 Edit 'app.html' under App.web  
 ```HTML
