@@ -3,7 +3,7 @@ layout: default
 published: true
 ---
 
-# [](#header-1)Getting started with Google Web Toolkit (GWT) on Google App Engine (GAE)
+# [](#header-1)Getting started with Google Web Toolkit (GWT) on Google App Engine (GAE)    
     
 
 #### [](#header-2)Platform decisions  
