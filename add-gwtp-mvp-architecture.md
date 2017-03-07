@@ -84,6 +84,30 @@ public class ClientModule extends AbstractPresenterModule {
 }
 ```
 
+#### [](#header-2)Inherit GWTP in the module.gwt.xml file
+```XML
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
+        "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
+<module rename-to="app">
+
+    <!-- Inherit the core Web Toolkit stuff.                  -->
+    <inherits name='com.google.gwt.user.User'/>
+
+    <!-- Specify the app entry point.                   -->
+    <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/>
+    <extend-configuration-property name="gin.ginjector.modules"
+                                   value="com.example.app.client.gin.ClientModule"/>
+    <source path="client"/>
+    <source path="shared"/>
+
+    <!-- Specify the app servlets.                   -->
+    <servlet path='/appService' class='com.example.app.server.appServiceImpl'/>
+
+</module>
+```
+
+
+
 Edit 'app.html' under App.web  
 ```HTML
 <html>
