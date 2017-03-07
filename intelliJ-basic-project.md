@@ -1,5 +1,6 @@
 ---
 layout: default
+published: true
 ---
 
 # [](#header-1)Creating a new GWT & GAE project with IntelliJ IDEA
@@ -52,27 +53,21 @@ apply plugin: 'war'
 repositories {
     mavenCentral()
 }
-
 // Dependency Versions
 ext{
     gaeVer = '1.9.42'
-    gwtVer = '2.8.0-beta1'
-    objectifyVer = '5.1.9'
+    requestFactoryVer = '2.8.0-beta1'
     gwtpVer = '1.5.3'
     jbcryptVer = '0.3m'
     jodaVer = '2.9.1'
     guiceVer = '3.0'
     hibernateVer = '4.1.0.Final'
     sl4jVer = '1.6.1'
-    vaadinPolymerVer = '1.2.3.0'
     gwtqueryVer = '1.4.3'
-    d3Ver = '1.2.0'
 }
-
 dependencies {
-    compile group: 'com.google.web.bindery', name: 'requestfactory-server', version: gwtVer
-    compile group: 'com.google.web.bindery', name: 'requestfactory-apt', version: gwtVer
-    compile group: 'com.googlecode.objectify', name: 'objectify', version: objectifyVer
+    compile group: 'com.google.web.bindery', name: 'requestfactory-server', version: requestFactoryVer
+    compile group: 'com.google.web.bindery', name: 'requestfactory-apt', version: requestFactoryVer
     compile group: 'com.gwtplatform', name: 'gwtp-mvp-client', version: gwtpVer
     compile group: 'org.mindrot', name: 'jbcrypt', version: jbcryptVer
     compile group: 'joda-time', name: 'joda-time', version: jodaVer
@@ -91,9 +86,7 @@ dependencies {
         exclude(module: 'slf4j-api')
     }
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version: sl4jVer
-    compile group: 'com.vaadin.polymer', name: 'vaadin-gwt-polymer-elements', version: vaadinPolymerVer
     compile group: 'com.googlecode.gwtquery', name: 'gwtquery', version: gwtqueryVer
-    compile group: 'com.github.gwtd3', name: 'gwt-d3-api', version: d3Ver
 
     testCompile 'junit:junit:4.11'
 }
@@ -126,8 +119,6 @@ When done right-click the App module and select Module Settings.
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.58.49%20PM.png)
 
 Click **+** and then **Library** to add the dependencies from our parent module (loaded by the build.gradle) that our App module will need.  
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.59.21%20PM.png)
 
 Add all libraries except the Application Server Libraries.
 
@@ -205,4 +196,3 @@ Run the **deploy** task. You'll need a GAE project set up to receive the applica
 
 
 ![](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
-
