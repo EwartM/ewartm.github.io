@@ -22,9 +22,6 @@ Java 7 only. Google have been talking about GAE Java 8 support since 2015...
 - **Older libraries** only
     	- GAE max 1.9.42
     	- GWT max 2.8.0-beta1
-    	- Vaadin Polymer Elements max 1.2.3.0
-    	- GWTP max 1.5.3
-    	- GWT D3JS max 1.2.0 ?
 - Possible **workarounds** to use Java 8 libraries
     - Use JDK 8 and retrolambda: 
     	- [https://github.com/orfjackal/retrolambda](https://github.com/orfjackal/retrolambda)
