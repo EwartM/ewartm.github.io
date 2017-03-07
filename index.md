@@ -5,7 +5,7 @@ published: true
 
 # [](#header-1)Getting started with Google Web Toolkit (GWT) on Google App Engine (GAE)    
     
-
+  
 #### [](#header-2)Platform decisions  
 [Choosing a version of GWT for GAE - 1 March 2017](which-gwt-on-gae)  
 
