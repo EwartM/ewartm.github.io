@@ -12,7 +12,7 @@
 1. **GWTP 1.5.3 Model View Presenter architecture**
 1. **Guice 3.0 Dependency Injection**
 
-
+[Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/2553e249c43517529b7a5eb5c2f5658576923dd4)
 
 #### [](#header-2)Prerequisite
 
@@ -314,3 +314,5 @@ Edit **app.html** found under App.web
 </body>
 </html>
 ```
+
+[Previous - basic project](intelliJ-basic-project) [Next - adding Bootstrapper & Login presenter](bootstrapper-and-login)
