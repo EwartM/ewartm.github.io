@@ -48,7 +48,7 @@ This presenter will be the default page
 
 Add a new Presenter via New > 'create GWTP Presenter with View'  
 
-Call the new nested presenter called Home under **..client.ui.home** 
+Create a new nested presenter called Home under **..client.ui.home** 
 Check 'Place' and fill 'HOME' 
 Select 'Slot' and browse to the Application presenter's SLOT_APPLICATION
 check 'UI Handlers'    
