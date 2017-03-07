@@ -18,7 +18,7 @@
 [Download & install the GWTP IntelliJ plugin](https://plugins.jetbrains.com/plugin/7318-gwt-platform-gwtp-intellij-idea-plugin)  
 IntelliJ IDEA > Settings > Plugins > Install from file
 
-#### [](#header-2)NameTokens file
+#### [](#header-2)'NameTokens' file
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 7.41.08 PM.png)
 
@@ -41,6 +41,33 @@ Create a new nested presenter called Application under ..client.ui
 Uncheck 'Place' and check 'UI Handlers'    
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.09.42 PM.png)  
 
+Edit ApplicationView 
+```java
+package com.example.app.client.ui;
+
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.gwtplatform.mvp.client.ViewWithUiHandlers;
+import javax.inject.Inject;
+
+public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> implements ApplicationPresenter.MyView {
+    interface Binder extends UiBinder<Widget, ApplicationView> {
+    }
+
+    @UiField
+    SimplePanel main;
+
+    @Inject
+    ApplicationView(Binder uiBinder) {
+        initWidget(uiBinder.createAndBindUi(this));
+
+        bindSlot(ApplicationPresenter.SLOT_APPLICATION, main);
+    }
+}
+```
+
 Save all files    
 
 #### [](#header-2)'Home' presenter  
@@ -53,6 +80,125 @@ Check 'Place' and fill 'HOME'
 Select 'Slot' and browse to the Application presenter's SLOT_APPLICATION  
 check 'UI Handlers'   
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.16.37 PM.png)
+
+We want to move the 'Click Me' button and label out of the generated 'app' file and into our new GWTP presenter. You can delete com.example.app.client.app as we won't be using it anymore.  
+
+Edit HomeView.ui.xml to generate the new 'Click Me' button and label.
+```XML
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <g:HTMLPanel ui:field="main">
+        <g:Button ui:field="btn_clickMe" text="Click Me"/>
+        <g:Label ui:field="lbl_feedback"/>
+    </g:HTMLPanel>
+</ui:UiBinder>
+```
+
+Edit HomeView to implement the server call. The server call currently uses GWT-RPC, something we'll change later. For now we'll just add a click handler and the generated GWT-RPC call.
+```java
+package com.example.app.client.ui.home;
+
+import com.example.app.client.appService;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.gwtplatform.mvp.client.ViewWithUiHandlers;
+import javax.inject.Inject;
+
+public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements HomePresenter.MyView {
+    interface Binder extends UiBinder<Widget, HomeView> {
+    }
+
+    @UiField
+    HTMLPanel main;
+    @UiField
+    Button btn_clickMe;
+    @UiField
+    Label lbl_feedback;
+
+    @Inject
+    HomeView(Binder uiBinder) {
+        initWidget(uiBinder.createAndBindUi(this));
+
+        btn_clickMe.addClickHandler(new ClickHandler() {
+            public void onClick(ClickEvent event) {
+                if (lbl_feedback.getText().equals("")) {
+                    appService.App.getInstance().getMessage("Hello, World!", new MyAsyncCallback(lbl_feedback));
+                } else {
+                    lbl_feedback.setText("");
+                }
+            }
+        });
+
+        main.setVisible(true);
+    }
+
+    private static class MyAsyncCallback implements AsyncCallback<String> {
+        private Label label;
+
+        public MyAsyncCallback(Label label) {
+            this.label = label;
+        }
+
+        public void onSuccess(String result) {
+            label.getElement().setInnerHTML(result);
+        }
+
+        public void onFailure(Throwable throwable) {
+            label.setText("Failed to receive answer from server!");
+        }
+    }
+}
+```
+
+Edit HomePresenter 
+```java
+package com.example.app.client.ui.home;
+
+import com.example.app.client.place.NameTokens;
+import com.example.app.client.ui.ApplicationPresenter;
+import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
+import com.gwtplatform.mvp.client.HasUiHandlers;
+import com.gwtplatform.mvp.client.Presenter;
+import com.gwtplatform.mvp.client.View;
+import com.gwtplatform.mvp.client.annotations.NameToken;
+import com.gwtplatform.mvp.client.annotations.ProxyStandard;
+import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
+import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+
+public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter.MyProxy> implements HomeUiHandlers {
+    interface MyView extends View, HasUiHandlers<HomeUiHandlers> {
+    }
+
+    @NameToken(NameTokens.HOME)
+    @ProxyStandard
+    interface MyProxy extends ProxyPlace<HomePresenter> {
+    }
+
+    //public static final NestedSlot SLOT_HOME = new NestedSlot();
+
+    @Inject
+    HomePresenter(
+            EventBus eventBus,
+            MyView view,
+            MyProxy proxy) {
+        super(eventBus, view, proxy, ApplicationPresenter.SLOT_APPLICATION);
+
+        getView().setUiHandlers(this);
+    }
+
+}
+```
+
+The other presenter files can be left as generated by the GWTP plugin.
 
 #### [](#header-2)GIN 'ClientModule' file
 Whenever you create a new presenter be sure to add an 'install' line for it here 
@@ -80,6 +226,7 @@ public class ClientModule extends AbstractPresenterModule {
                 .build());
 
         install(new ApplicationModule());
+        install(new HomeModule());
     }
 }
 ```
@@ -106,7 +253,7 @@ public class ClientModule extends AbstractPresenterModule {
 </module>
 ```
 
-
+#### [](#header-2)'app.html' file
 
 Edit 'app.html' under App.web  
 ```HTML
