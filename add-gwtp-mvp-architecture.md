@@ -18,7 +18,7 @@
 [Download & install the GWTP IntelliJ plugin](https://plugins.jetbrains.com/plugin/7318-gwt-platform-gwtp-intellij-idea-plugin)  
 IntelliJ IDEA > Settings > Plugins > Install from file
 
-#### [](#header-2)Create the NameTokens file
+#### [](#header-2)NameTokens file
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 7.41.08 PM.png)
 
@@ -31,19 +31,19 @@ public class NameTokens {
 }
 ```
 
-#### [](#header-2)Create the 'Application' presenter  
+#### [](#header-2)'Application' presenter  
 This presenter will be the base presenter inside which all other will display  
 
 Add a new Presenter via New > 'create GWTP Presenter with View'  
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 8.21.34 PM.png)
 
-Call the new nested presenter called Application under ..client.ui  
+Create a new nested presenter called Application under ..client.ui  
 Uncheck 'Place' and check 'UI Handlers'    
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.09.42 PM.png)  
 
 Save all files    
 
-#### [](#header-2)Create the 'Home' presenter  
+#### [](#header-2)'Home' presenter  
 This presenter will be the default page   
 
 Add a new Presenter via New > 'create GWTP Presenter with View'  
