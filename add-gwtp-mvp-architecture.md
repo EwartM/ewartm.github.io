@@ -254,6 +254,45 @@ public class ClientModule extends AbstractPresenterModule {
 NOTE: Whenever you create a new presenter remember to add an 'install' line for it here
 
 
+#### [](#header-2)'ClientBootstrapper' file 
+ 
+Create a New > Java class called 'ClientBootstrapper' with the content below in the 'client' folder  
+```java
+package com.example.app.client;
+
+import com.example.app.client.place.NameTokens;
+import com.google.inject.Inject;
+import com.gwtplatform.mvp.client.Bootstrapper;
+import com.gwtplatform.mvp.client.proxy.PlaceManager;
+import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
+import com.gwtplatform.mvp.shared.proxy.TokenFormatter;
+
+public class ClientBootstrapper implements Bootstrapper {
+
+    private final PlaceManager placeManager;
+    private final TokenFormatter tokenFormatter;
+
+    @Inject
+    public ClientBootstrapper (
+            TokenFormatter tokenFormatter,
+            PlaceManager placeManager
+    ) {
+
+        this.placeManager = placeManager;
+        this.tokenFormatter = tokenFormatter;
+    }
+
+    @Override
+    public void onBootstrap() {
+
+        PlaceRequest requestedPlace = new PlaceRequest.Builder().nameToken(NameTokens.HOME).build();
+        placeManager.revealPlace(requestedPlace);
+
+    }
+}
+```
+
+
 #### [](#header-2)Inherit GWTP in the app.gwt.xml (module XML) file
 
 Add the GWTP inherit in **app.gwt.xml** found under App.src.com.example.app 
@@ -262,17 +301,21 @@ Add the GWTP inherit in **app.gwt.xml** found under App.src.com.example.app
         "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
 <module rename-to="app">
 
-    <!-- Inherit the core Web Toolkit stuff.                  -->
+    <!-- Inherit the core Web Toolkit stuff.            -->
     <inherits name='com.google.gwt.user.User'/>
 
     <!-- Specify the app entry point.                   -->
     <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/>
+    <set-configuration-property name="gwtp.bootstrapper"  
+         value="com.clearwood.common.client.ClientBootstrapper"/> 
+    <!-- GIN module.                   					-->    
     <extend-configuration-property name="gin.ginjector.modules"
-                                   value="com.example.app.client.gin.ClientModule"/>
+                                   value="com.example.app.client.gin.ClientModule"/> 
+    <!-- Translatable code.                   			-->
     <source path="client"/>
     <source path="shared"/>
 
-    <!-- Specify the app servlets.                   -->
+    <!-- Specify the app servlets.                   	-->
     <servlet path='/appService' class='com.example.app.server.appServiceImpl'/>
 
 </module>
