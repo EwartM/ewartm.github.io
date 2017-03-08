@@ -134,6 +134,28 @@ Now you'll see the libraries listed as part of our App build.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.00.00%20PM.png)
 
+Next, edit the web.xml file found in App/web/WEB-INF
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!-- Default page to serve -->
+    <welcome-file-list>
+        <welcome-file>app.html</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>app appService</servlet-name>
+        <servlet-class>com.example.app.server.appServiceImpl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>app appService</servlet-name>
+        <url-pattern>/app/appService</url-pattern>
+    </servlet-mapping>
+</web-app>
+```
+
 #### [](#header-2)Run the application on a local Jetty server
 
 Select **debug** with the 'AppEngine Dev 1.9.42' task to start a local GAE server where we can test that App works.
