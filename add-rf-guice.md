@@ -162,3 +162,72 @@ public class DomainObject {
 
 }
 ```
+
+#### [](#header-2)User service
+
+We'll set up service for the client to interact with our User Pojo 
+
+Create a New > Java class called 'UserService' with the content below in the com.example.app.server.service folder  
+```java
+package com.example.app.server.service;
+
+import com.example.app.server.domain.User;
+
+public class UserService {
+
+    /**
+     * PUBLIC
+     * Check submitted credentials against DB
+     */
+    public User authenticate (String submittedEmail, String submittedPassword) {
+
+        User user = null;
+
+        String testEmail = "admin@example.com";
+        String testPassword = "admin";
+
+        if (testEmail != null) {
+            if (submittedEmail.matches(testEmail) &&
+                    submittedPassword.matches(testPassword)) {
+                user = new User();
+                user.setEmail(submittedEmail);
+            }
+        }
+
+        return user;
+    }
+}
+```
+
+#### [](#header-2)Request Factory class
+
+Create a New > Java class called 'MyRequestFactory' with the content below in the com.example.app.shared.service folder  
+
+The service methods we created above must be added into our Request Factory class 
+
+```java
+package com.example.app.shared.service;
+
+import com.example.app.client.proxy.UserProxy;
+import com.example.app.server.locator.DaoServiceLocator;
+import com.example.app.server.service.UserService;
+import com.google.web.bindery.requestfactory.shared.Request;
+import com.google.web.bindery.requestfactory.shared.RequestContext;
+import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.google.web.bindery.requestfactory.shared.Service;
+
+public interface MyRequestFactory extends RequestFactory {
+
+    //USER
+    UserRequest userRequest();
+
+    @Service(value = UserService.class, locator = DaoServiceLocator.class)
+    public interface UserRequest extends RequestContext {
+        Request<UserProxy> authenticate(String submittedEmail, String submittedPassword);
+    }
+
+}
+```
+
+
+
