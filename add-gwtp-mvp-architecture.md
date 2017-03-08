@@ -23,7 +23,7 @@ After downloading go to IntelliJ IDEA > Settings > Plugins > Install from file
 #### [](#header-2)Overview
 
 At the end of this tutorial the project structure will look like this:
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 7.41.08 PM.png)
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 7.39.45 AM.png)
 
 #### [](#header-2)'NameTokens' file (part 1)
 
