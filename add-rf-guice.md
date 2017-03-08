@@ -24,6 +24,36 @@
 At the end of this tutorial the project structure will look like this:
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 6.52.48 PM.png)
 
+#### [](#header-2)Request Factory class
+
+Inherit Request Factory in the app.gwt.mxl  
+
+```XML
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
+        "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
+<module rename-to="app">
+
+    <!-- Inherit the core Web Toolkit stuff.                  -->
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.google.gwt.inject.Inject' />
+    <inherits name="com.google.gwt.i18n.I18N"/>
+
+    <!-- GWTP -->
+    <inherits name='com.gwtplatform.mvp.Mvp'/>
+    <entry-point class='com.example.app.client.MyEntryPoint'/>
+    <!-- GIN -->
+    <extend-configuration-property name="gin.ginjector.modules"
+                                   value="com.example.app.client.gin.ClientModule"/>
+    <!-- Specify the paths for translatable code -->
+    <source path="client"/>
+    <source path="shared"/>
+
+    <!-- Request Factory -->
+    <inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
+
+</module>
+```
+
 #### [](#header-2)'Users' Server POJO and Client Proxy  
 
 With Request Factory we create a POJO on the server and corresponding Proxy on the client
