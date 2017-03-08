@@ -224,8 +224,6 @@ Create a New > Java class called 'ClientModule' with the content below in the 'g
 package com.example.app.client.gin;
 
 import com.example.app.client.place.NameTokens;
-import com.example.app.client.ui.home.HomeModule;
-import com.example.app.client.ui.login.LoginModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
 import com.gwtplatform.mvp.shared.proxy.RouteTokenFormatter;
@@ -238,7 +236,7 @@ public class ClientModule extends AbstractPresenterModule {
                 .tokenFormatter(RouteTokenFormatter.class)
                 .defaultPlace(NameTokens.HOME)
                 .errorPlace(NameTokens.HOME) //TODO
-                .unauthorizedPlace(NameTokens.LOGIN)
+                .unauthorizedPlace(NameTokens.HOME)
                 .build());
 
         install(new ApplicationModule());
@@ -274,27 +272,29 @@ public class MyEntryPoint implements EntryPoint {
 
 #### [](#header-2)Inherit GWTP in the app.gwt.xml (module XML) file
 
-Add the GWTP inherit in **app.gwt.xml** found under App.src.com.example.app 
+Add the GWTP inherit in **app.gwt.xml** found under App.src.com.example.app  
+Note: I tried to use a Bootstrapper instead of an EntryPoint but it kept throwing a GWTP error - may be a problem with the way IntelliJ sets up the GWT project. 
 ```XML
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
         "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
 <module rename-to="app">
 
-    <!-- Inherit the core Web Toolkit stuff.            -->
+    <!-- Inherit the core Web Toolkit stuff.                  -->
     <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.google.gwt.inject.Inject' />
+    <inherits name="com.google.gwt.i18n.I18N"/>
 
-    <!-- Specify the app entry point.                   -->
-    <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/>
-    <set-configuration-property name="gwtp.bootstrapper"
-                                value="com.example.app.client.ClientBootstrapper"/>
-    <!-- GIN module.                   					-->
+    <!-- GWTP -->
+    <inherits name='com.gwtplatform.mvp.Mvp'/>
+    <entry-point class='com.example.app.client.MyEntryPoint'/>
+    <!-- GIN -->
     <extend-configuration-property name="gin.ginjector.modules"
                                    value="com.example.app.client.gin.ClientModule"/>
-    <!-- Translatable code.                   			-->
+    <!-- Specify the paths for translatable code -->
     <source path="client"/>
     <source path="shared"/>
 
-    <!-- Specify the app servlets.                   	-->
+    <!-- Specify the app servlets.                   -->
     <servlet path='/appService' class='com.example.app.server.appServiceImpl'/>
 
 </module>
