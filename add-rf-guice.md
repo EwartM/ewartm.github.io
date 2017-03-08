@@ -11,7 +11,7 @@
 1. IntelliJ IDEA Ultimate 2016.3
 1. GWTP 1.5.3 Model View Presenter architecture
 1. Guice 3.0 Dependency Injection
-1. Request Factory
+1. **Request Factory**
 
 [Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/dc0dd25f5b586477d6587c285381dc19d6f937bd)
 
@@ -259,5 +259,69 @@ public interface MyRequestFactory extends RequestFactory {
 }
 ```
 
+#### [](#header-2)Add Guice files
 
+Create a New > Java class called 'ServerModule' with the content below in the com.example.app.server.guice folder  
+```java
+package com.example.app.server.guice;
 
+import com.example.app.server.ServerBootstrapper;
+import com.example.app.server.service.UserService;
+import com.google.inject.AbstractModule;
+import com.google.inject.Singleton;
+import com.google.web.bindery.requestfactory.server.RequestFactoryServlet;
+
+public class ServerModule extends AbstractModule {
+    @Override
+    protected void configure() {
+        //Request factory
+        bind(RequestFactoryServlet.class).in(Singleton.class);
+        //Bootstrap
+        bind(ServerBootstrapper.class).asEagerSingleton();
+        //Services
+        bind(UserService.class).in(Singleton.class);
+    }
+}
+```
+
+Create a New > Java class called 'MyServletModule' with the content below in the com.example.app.server.guice folder  
+```java
+package com.example.app.server.guice;
+
+import java.util.HashMap;
+import java.util.Map;
+import com.google.inject.servlet.ServletModule;
+import com.google.web.bindery.requestfactory.server.RequestFactoryServlet;
+
+public class MyServletModule extends ServletModule {
+
+    @Override protected void configureServlets() {
+
+        // NOTE: BOTH Request Factory AND Remote logging use the parameter below
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("symbolMapsDirectory", "WEB-INF/deploy/app/symbolMaps/");
+
+        // Request Factory (see parameters note above)
+        serve("/gwtRequest").with( RequestFactoryServlet.class, params);
+
+    }
+}
+```
+
+Create a New > Java class called 'MyServletConfig' with the content below in the com.example.app.server.guice folder  
+```java
+package com.example.app.server.guice;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.servlet.GuiceServletContextListener;
+
+public class MyServletConfig extends GuiceServletContextListener {
+    @Override
+    protected Injector getInjector() {
+        return Guice.createInjector(
+                new ServerModule(),
+                new MyServletModule());
+    }
+}
+```
