@@ -195,7 +195,7 @@ public class DomainObject {
 
 #### [](#header-2)User service
 
-We'll set up service for the client to interact with our User Pojo 
+We'll set up service for the client to interact with our User POJO. 
 
 Create a New > Java class called 'UserService' in the com.example.app.server.service folder  
 ```java
@@ -228,6 +228,8 @@ public class UserService {
     }
 }
 ```
+Don't worry, we will get to security later.  
+
 
 #### [](#header-2)Wiring up RequestFactory
 
@@ -414,5 +416,93 @@ RequestFactory requires that we enable annotation processing to avoid the dreade
 
 #### [](#header-2)Make a RequestFactory call from the client 
 
+Add some textboxes to **client.ui.home.HomeView.ui.xml** 
+```XML
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <g:HTMLPanel ui:field="main">
+        <g:TextBox ui:field="txt_email"/>
+        <g:TextBox ui:field="txt_password"/>
+        <g:Button ui:field="btn_login" text="Sign in"/>
+        <g:Label ui:field="lbl_result"/>
+    </g:HTMLPanel>
+</ui:UiBinder>
+```
 
+Make the following changes to **client.ui.home.HomeView**    
+```java
+package com.example.app.client.ui.home;
+
+import com.example.app.client.proxy.UserProxy;
+import com.example.app.shared.service.MyRequestFactory;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.*;
+import com.google.inject.Inject;
+import com.google.web.bindery.requestfactory.shared.Receiver;
+import com.google.web.bindery.requestfactory.shared.ServerFailure;
+import com.gwtplatform.mvp.client.ViewWithUiHandlers;
+
+public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements HomePresenter.MyView {
+    interface Binder extends UiBinder<Widget, HomeView> {
+    }
+
+    private final MyRequestFactory requestFactory;
+
+    @UiField
+    HTMLPanel main;
+    @UiField
+    TextBox txt_email;
+    @UiField
+    TextBox txt_password;
+    @UiField
+    Button btn_login;
+    @UiField
+    Label lbl_result;
+
+    @Inject
+    HomeView(
+            Binder uiBinder,
+            MyRequestFactory requestFactory
+        ) {
+        initWidget(uiBinder.createAndBindUi(this));
+
+        this.requestFactory = requestFactory;
+
+        btn_login.addClickHandler(new ClickHandler() {
+            public void onClick(ClickEvent event) {
+                checkLogin();
+            }
+        });
+    }
+
+    private void checkLogin() {
+
+        String email = txt_email.getText();
+        String password = txt_password.getText();
+
+        requestFactory.userRequest().authenticate(email,password).fire(
+                new Receiver<UserProxy>() {
+                    @Override
+                    public void onSuccess(UserProxy user) {
+                        if (user != null) {
+                            lbl_result.setText("User logged in");
+                        } else {
+                            lbl_result.setText("Invalid credentials");
+                        }
+                    }
+                    @Override
+                    public void onFailure(ServerFailure error) {
+                        Window.alert(error.getMessage() + error.getStackTraceString());
+                    }
+                });
+    }
+
+}
+```
 
