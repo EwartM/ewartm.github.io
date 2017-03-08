@@ -219,7 +219,7 @@ public class NameTokens {
 #### [](#header-2)GIN 'ClientModule' file 
 
 Create a New > Package (folder) called 'gin' under App.src.com.example.app.client
-Create a New > Java class called 'ClientModule' with the content below in the 'gin' folder
+Create a New > Java class called 'ClientModule' in the 'gin' folder
 ```java
 package com.example.app.client.gin;
 
@@ -249,7 +249,7 @@ NOTE: GWTP automatically adds the 'install(new WhateverModule());' line to the p
 
 #### [](#header-2)'MyEntryPoint' file 
  
-Create a New > Java class called 'MyEntryPoint' with the content below in the 'client' folder  
+Create a New > Java class called 'MyEntryPoint' in the 'client' folder  
 ```java
 package com.example.app.client;
 
