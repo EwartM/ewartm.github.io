@@ -158,7 +158,8 @@ Next, edit the web.xml file found in App/web/WEB-INF
 
 #### [](#header-2)Debug the application on a local server
 
-Select **debug** with the 'app' task to start a local server where we can test that App works.
+Select **debug** with the 'app' task to start a local server where we can test that App works.  
+This will be the normal way of working on the code.  
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 12.12.12 PM.png)
 
