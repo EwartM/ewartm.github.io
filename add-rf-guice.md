@@ -58,7 +58,7 @@ Inherit Request Factory in the app.gwt.mxl
 
 With Request Factory we create a POJO on the server and corresponding Proxy on the client
 
-Create a New > Java class called 'User' with the content below in the com.example.app.server.domain folder  
+Create a New > Java class called 'User' in the com.example.app.server.domain folder  
 ```java
 package com.example.app.server.domain;
 
@@ -104,7 +104,7 @@ public class User extends DomainObject {
 }
 ```
 
-Create a New > Java class called 'UserProxy' with the content below in the com.example.app.client.proxy folder  
+Create a New > Java class called 'UserProxy' in the com.example.app.client.proxy folder  
 ```java
 package com.example.app.client.proxy;
 
@@ -135,7 +135,7 @@ public interface UserProxy extends EntityProxy {
 
 Request Factory keeps track of object changes / versions. Every RF object needs to have an id & version so all our RF objects should extend the class below.  
 
-Create a New > Java class called 'DomainObject' with the content below in the com.example.app.server.domain folder  
+Create a New > Java class called 'DomainObject' in the com.example.app.server.domain folder  
 ```java
 package com.example.app.server.domain;
 
@@ -197,7 +197,7 @@ public class DomainObject {
 
 We'll set up service for the client to interact with our User Pojo 
 
-Create a New > Java class called 'UserService' with the content below in the com.example.app.server.service folder  
+Create a New > Java class called 'UserService' in the com.example.app.server.service folder  
 ```java
 package com.example.app.server.service;
 
@@ -229,11 +229,11 @@ public class UserService {
 }
 ```
 
-#### [](#header-2)Request Factory class
+#### [](#header-2)Wiring up Request Factory
 
-Create a New > Java class called 'MyRequestFactory' with the content below in the com.example.app.shared.service folder  
+Create a New > Java class called **'MyRequestFactory'** in the com.example.app.shared.service folder  
 
-The service methods we created above must be added into our Request Factory class 
+Service methods like the ones we created above must be added into our Request Factory class.   
 
 ```java
 package com.example.app.shared.service;
@@ -259,7 +259,42 @@ public interface MyRequestFactory extends RequestFactory {
 }
 ```
 
-#### [](#header-2)Add Guice files
+We need a locator class to help Request Factory find our services. So create a New > Java class called **'DaoServiceLocator'** in the com.example.app.server.locator folder  
+```java
+package com.example.app.server.locator;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import com.google.inject.Injector;
+import com.google.web.bindery.requestfactory.server.RequestFactoryServlet;
+import com.google.web.bindery.requestfactory.shared.ServiceLocator;
+
+/**
+ * Generic locator service that can be referenced in the @Service annotation
+ * for any RequestFactory service stub
+ */
+public class DaoServiceLocator implements ServiceLocator {
+    @SuppressWarnings("unchecked")
+    @Override
+    public Object getInstance(@SuppressWarnings("rawtypes") Class clazz) {
+        HttpServletRequest request = RequestFactoryServlet.getThreadLocalRequest();
+        ServletContext servletContext = request.getSession().getServletContext();
+		/* during the GuiceServletContextListener the Injector is sticked to the ServletContext with the attribute name Injector.class.getName()*/
+        Injector injector = (Injector) servletContext.getAttribute(Injector.class.getName());
+
+        if (injector == null) {
+            //throw new IllegalStateException(“No injector found. Must be set as attribute in the servlet context with the name ” + Injector.class.getName());
+            System.out.println( "MYERROR: No injector found. Must be set as attribute in the servlet context with the name " + Injector.class.getName() );
+        }
+
+        // Resolve Binding with Guice
+        return injector.getInstance(clazz);
+    }
+}
+```
+
+
+#### [](#header-2)Add the Guice files
 
 Create a New > Java class called **'ServerModule'** with the content below in the com.example.app.server.guice folder  
 ```java
@@ -326,7 +361,7 @@ public class MyServletConfig extends GuiceServletContextListener {
 }
 ```
 
-Finally add a New > Java class called **'ServerBootstrapper'** with the content below in the com.example.app.server folder. We'll use this class later.    
+Next, add a New > Java class called **'ServerBootstrapper'** with the content below in the com.example.app.server folder. We'll use this class later.    
 ```java
 package com.example.app.server;
 
@@ -343,3 +378,30 @@ public class ServerBootstrapper {
 }
 ```
 
+Finally, configure the Guice servlet in App.web.WEB-INF.web.xml  
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!-- Default page to serve -->
+    <welcome-file-list>
+        <welcome-file>app.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- Configure Guice servlet, other servlets configured in MyServletModule -->
+    <filter>
+        <filter-name>guiceFilter</filter-name>
+        <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>guiceFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+        <listener-class>com.example.app.server.guice.MyServletConfig</listener-class>
+    </listener>
+
+</web-app>
+```
