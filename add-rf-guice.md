@@ -505,3 +505,9 @@ public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements Home
 
 }
 ```
+
+You should now be able to debug the application or upload it to App Engine and see the following:  
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 8.03.39 PM.png)
+
+
+
