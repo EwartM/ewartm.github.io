@@ -511,3 +511,5 @@ You should now be able to debug the application or upload it to App Engine and s
 
 
 
+[Previous - adding GWTP MVP architecture](add-gwtp-mvp-architecture)    
+[Next - adding a Login presenter](add-login-presenter)
