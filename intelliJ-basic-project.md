@@ -156,7 +156,34 @@ Next, edit the web.xml file found in App/web/WEB-INF
 </web-app>
 ```
 
-#### [](#header-2)Run the application on a local Jetty server
+#### [](#header-2)Debug the application on a local server
+
+Select **debug** with the 'app' task to start a local server where we can test that App works.
+
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 12.12.12 PM.png)
+
+![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.03.01%20PM.png)
+
+#### [](#header-2)Test server breakpoints and code update
+
+You should be able to set a breakpoint in the server side code.  
+The client code doesn't support breakpoints for some reason. As a workaround you can use Chrome > More Tools > Developer Tools to debug the front-end.
+
+![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.03.23%20PM.png)
+
+Click the button to resume after hitting a breakpoint.
+
+![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.15%20PM.png)
+
+Make some changes to the code and save.
+
+![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.36%20PM.png)
+
+Refresh the browser tab.
+
+![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.05.19%20PM.png)
+
+#### [](#header-2)Debug the application on a local GAE instance
 
 Select **debug** with the 'AppEngine Dev 1.9.42' task to start a local GAE server where we can test that App works.
 
@@ -175,27 +202,6 @@ If all goes well you should have 2 URLs in the console. The first is where our A
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.02.46%20PM.png)
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.03.01%20PM.png)
-
-#### [](#header-2)Test server breakpoints and code update
-
-You should be able to set a breakpoint in the server side code.  
-The client code doesn't support breakpoints for some reason. As a workaround you can use Chrome > More Tools > Developer Tools to debug the front-end.
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.03.23%20PM.png)
-
-Click the button to resume after hitting a breakpoint.
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.15%20PM.png)
-
-Make some changes to the code and Update the served version.
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.36%20PM.png)
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.49%20PM.png)
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.05.07%20PM.png)
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.05.19%20PM.png)
 
 #### [](#header-2)Deploy to GAE standard
 
