@@ -261,7 +261,7 @@ public interface MyRequestFactory extends RequestFactory {
 
 #### [](#header-2)Add Guice files
 
-Create a New > Java class called 'ServerModule' with the content below in the com.example.app.server.guice folder  
+Create a New > Java class called **'ServerModule'** with the content below in the com.example.app.server.guice folder  
 ```java
 package com.example.app.server.guice;
 
@@ -284,7 +284,7 @@ public class ServerModule extends AbstractModule {
 }
 ```
 
-Create a New > Java class called 'MyServletModule' with the content below in the com.example.app.server.guice folder  
+Create a New > Java class called **'MyServletModule'** with the content below in the com.example.app.server.guice folder  
 ```java
 package com.example.app.server.guice;
 
@@ -308,7 +308,7 @@ public class MyServletModule extends ServletModule {
 }
 ```
 
-Create a New > Java class called 'MyServletConfig' with the content below in the com.example.app.server.guice folder  
+Create a New > Java class called **'MyServletConfig'** with the content below in the com.example.app.server.guice folder  
 ```java
 package com.example.app.server.guice;
 
@@ -325,3 +325,21 @@ public class MyServletConfig extends GuiceServletContextListener {
     }
 }
 ```
+
+Finally add a New > Java class called **'ServerBootstrapper'** with the content below in the com.example.app.server folder. We'll use this class later.    
+```java
+package com.example.app.server;
+
+import com.google.inject.Inject;
+
+public class ServerBootstrapper {
+
+    @Inject
+    ServerBootstrapper(
+    ) {
+        //TODO
+    }
+
+}
+```
+
