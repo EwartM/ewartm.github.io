@@ -306,11 +306,11 @@ Add the GWTP inherit in **app.gwt.xml** found under App.src.com.example.app
 
     <!-- Specify the app entry point.                   -->
     <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/>
-    <set-configuration-property name="gwtp.bootstrapper"  
-         value="com.clearwood.common.client.ClientBootstrapper"/> 
-    <!-- GIN module.                   					-->    
+    <set-configuration-property name="gwtp.bootstrapper"
+                                value="com.example.app.client.ClientBootstrapper"/>
+    <!-- GIN module.                   					-->
     <extend-configuration-property name="gin.ginjector.modules"
-                                   value="com.example.app.client.gin.ClientModule"/> 
+                                   value="com.example.app.client.gin.ClientModule"/>
     <!-- Translatable code.                   			-->
     <source path="client"/>
     <source path="shared"/>
