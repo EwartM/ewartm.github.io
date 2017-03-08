@@ -1,6 +1,6 @@
-# [](#header-1)Add Request Factory and Guice
+# [](#header-1)Add RequestFactory and Guice
 
-> We'll replace vanilla GWT-RPC with Request Factory. RequestFactory keeps track of objects that have been modified and sends only changes to the server, which results in very lightweight network payloads.   
+> We'll replace vanilla GWT-RPC with RequestFactory. RequestFactory keeps track of objects that have been modified and sends only changes to the server, which results in very lightweight network payloads.   
 
 > Guice provides Dependency Injection on the server side  
 
@@ -11,22 +11,22 @@
 1. IntelliJ IDEA Ultimate 2016.3
 1. GWTP 1.5.3 Model View Presenter architecture
 1. Guice 3.0 Dependency Injection
-1. **Request Factory**
+1. **RequestFactory**
 
 [Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/dc0dd25f5b586477d6587c285381dc19d6f937bd)
 
 #### [](#header-2)Prerequisite
 
-[Read the Request Factory docs](http://www.gwtproject.org/doc/latest/DevGuideRequestFactory.html#using)
+[Read the RequestFactory docs](http://www.gwtproject.org/doc/latest/DevGuideRequestFactory.html#using)
 
 #### [](#header-2)Overview
 
-At the end of this tutorial the project structure will look like this:
+At the end of this tutorial the project structure should look like this:
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 6.52.48 PM.png)
 
-#### [](#header-2)Inherit Request Factory
+#### [](#header-2)Inherit RequestFactory
 
-Inherit Request Factory in the app.gwt.mxl  
+Inherit RequestFactory in the app.gwt.mxl  
 
 ```XML
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
@@ -48,7 +48,7 @@ Inherit Request Factory in the app.gwt.mxl
     <source path="client"/>
     <source path="shared"/>
 
-    <!-- Request Factory -->
+    <!-- RequestFactory -->
     <inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
 
 </module>
@@ -56,7 +56,7 @@ Inherit Request Factory in the app.gwt.mxl
 
 #### [](#header-2)'Users' Server POJO and Client Proxy  
 
-With Request Factory we create a POJO on the server and corresponding Proxy on the client
+With RequestFactory we create a POJO on the server and corresponding Proxy on the client
 
 Create a New > Java class called 'User' in the com.example.app.server.domain folder  
 ```java
@@ -133,7 +133,7 @@ public interface UserProxy extends EntityProxy {
 
 #### [](#header-2)Base class for domain objects
 
-Request Factory keeps track of object changes / versions. Every RF object needs to have an id & version so all our RF objects should extend the class below.  
+RequestFactory keeps track of object changes / versions. Every RF object needs to have an id & version so all our RF objects should extend the class below.  
 
 Create a New > Java class called 'DomainObject' in the com.example.app.server.domain folder  
 ```java
@@ -229,11 +229,11 @@ public class UserService {
 }
 ```
 
-#### [](#header-2)Wiring up Request Factory
+#### [](#header-2)Wiring up RequestFactory
 
 Create a New > Java class called **'MyRequestFactory'** in the com.example.app.shared.service folder  
 
-Service methods like the ones we created above must be added into our Request Factory class.   
+Service methods like the ones we created above must be added into our RequestFactory class.   
 
 ```java
 package com.example.app.shared.service;
@@ -378,7 +378,7 @@ public class ServerBootstrapper {
 }
 ```
 
-Finally, configure the Guice servlet in App.web.WEB-INF.web.xml  
+Finally, **configure the Guice servlet in App.web.WEB-INF.web.xml** 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
@@ -405,3 +405,14 @@ Finally, configure the Guice servlet in App.web.WEB-INF.web.xml
 
 </web-app>
 ```
+
+#### [](#header-2)Enable annotation processing for the project
+
+RequestFactory requires that we enable annotation processing to avoid the dreaded 'the RequestFactory validation tool must be run' error.
+
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 4.32.46 PM.png)
+
+#### [](#header-2)Make a RequestFactory call from the client 
+
+
+
