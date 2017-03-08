@@ -345,4 +345,4 @@ You should now get
 
 
 [Previous - basic project](intelliJ-basic-project)    
-[Next - adding a Login presenter](add-login-presenter)
+[Next - adding Request Factory and Guice](add-rf-guice)
