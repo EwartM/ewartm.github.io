@@ -13,4 +13,5 @@ published: true
 
 #### [](#header-2)Tutorials  
 [Create a GWT project using IntelliJ IDEA - 5 March 2017](intelliJ-basic-project)  
-[Add GWTP MVP architecture - 7 March 2017](add-gwtp-mvp-architecture)  
+[Add GWTP MVP architecture - 7 March 2017](add-gwtp-mvp-architecture)
+[Add RequestFactory - 8 March 2017](add-rf-guice)
