@@ -412,7 +412,7 @@ Finally, **configure the Guice servlet in App.web.WEB-INF.web.xml**
 
 RequestFactory requires that we enable annotation processing to avoid the dreaded 'the RequestFactory validation tool must be run' error.
 
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 4.32.46 PM.png)
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 6.30.36 PM.png)
 
 #### [](#header-2)Make a RequestFactory call from the client 
 
@@ -505,4 +505,3 @@ public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements Home
 
 }
 ```
-
