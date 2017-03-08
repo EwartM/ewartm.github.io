@@ -24,7 +24,7 @@
 At the end of this tutorial the project structure will look like this:
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 6.52.48 PM.png)
 
-#### [](#header-2)Request Factory class
+#### [](#header-2)Inherit Request Factory
 
 Inherit Request Factory in the app.gwt.mxl  
 
