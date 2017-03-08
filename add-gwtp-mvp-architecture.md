@@ -86,7 +86,7 @@ Select 'Slot' and browse to the Application presenter's SLOT_APPLICATION
 check 'UI Handlers'   
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-07 at 6.16.37 PM.png)
 
-We want to move the 'Click Me' button and label out of the generated 'app' file and into our new GWTP presenter. You can delete com.example.app.client.app as we won't be using it anymore.  
+We want to **move the 'Click Me' button and label out of the generated 'app' file and into our new GWTP presenter**. You can delete com.example.app.client.app as we won't be using it anymore.  
 
 Edit **HomeView.ui.xml** to generate the new 'Click Me' button and label.
 ```XML
@@ -244,7 +244,7 @@ public class ClientModule extends AbstractPresenterModule {
 }
 ```
 
-NOTE: GWTP will automatically add the 'install(new WhateverModule());' line to the parent presenter (the one whose slot will load WhateverModule) so it shouldn't be necessary to bind it in the 'ClientModule' class.
+NOTE: GWTP automatically adds the 'install(new WhateverModule());' line to the parent presenter (the one whose slot will load WhateverModule) so it shouldn't be necessary to bind it in the 'ClientModule' class.
 
 
 #### [](#header-2)'MyEntryPoint' file 
@@ -273,7 +273,7 @@ public class MyEntryPoint implements EntryPoint {
 #### [](#header-2)Inherit GWTP in the app.gwt.xml (module XML) file
 
 Add the GWTP inherit in **app.gwt.xml** found under App.src.com.example.app  
-Note: I tried to use a Bootstrapper instead of an EntryPoint but it kept throwing a GWTP error - may be a problem with the way IntelliJ sets up the GWT project. 
+Note: I tried using a Bootstrapper instead of an EntryPoint but it kept throwing a GWTP error - not sure why. 
 ```XML
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
         "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
