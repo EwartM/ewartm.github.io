@@ -178,9 +178,11 @@ Click the button to resume after hitting a breakpoint.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.15%20PM.png)
 
-Make some changes to the code and save. Then refresh the classes by clicking the Debug > Update button.
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.19.06 PM.png)  
+Make some changes to the code and save. 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.36%20PM.png)  
+
+Then refresh the classes by clicking the Debug > Update button.  
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.19.06 PM.png)  
 
 Refresh the browser tab.
 
