@@ -209,8 +209,6 @@ Add '/app.html' to the path and select App:war exploded as the artifact to deplo
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.01.25%20PM.png)
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.01.35%20PM.png)
-
 If all goes well you should have 2 URLs in the console. The first is where our App is served. The second gives access to the local Datastore instance.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.02.46%20PM.png)
@@ -222,6 +220,8 @@ If all goes well you should have 2 URLs in the console. The first is where our A
 Create a new Configuration to deploy the App to the Google App Engine cloud. 
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.05.55%20PM.png)
+
+Click **+**
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.06.13%20PM.png)
 
