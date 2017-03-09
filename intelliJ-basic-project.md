@@ -46,7 +46,7 @@ IDEA has created a blank build.gradle file for us.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.53.41%20PM.png)
 
-Modify the default build.gradle with the dependencies you plan to use (you can add / remove later as required). **Do not add Java, GWT or GAE dependencies as the app module will include those.**   
+Modify the default build.gradle with the dependencies you plan to use (you can add / remove later as required). **Do not add Java, GWT or GAE dependencies to build.gradle as the app module will include those.**   
 
 Below is an example build.gradle file
 
@@ -100,9 +100,9 @@ dependencies {
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.54.52%20PM.png)
 
-Open the Gradle tab and select **build** to copy the libraries to the project.
+IntelliJ should ask you whether you want to configure the Gradle wrapper. Click OK.
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.55.50%20PM.png)
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 11.07.22 AM.png)
 
 #### [](#header-2)Create the application module and link it's dependencies
 
@@ -126,13 +126,29 @@ When done right-click the App module and select Module Settings.
 
 Click **+** and then **Library** to add the dependencies from our parent module (loaded by the build.gradle) that our App module will need.  
 
-Add all libraries except the Application Server Libraries.
+Add all libraries except the 'GWT Application Server' Libraries.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.59.35%20PM.png)
 
 Now you'll see the libraries listed as part of our App build.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.00.00%20PM.png)
+
+#### [](#header-2)Remove unnecessary build afrifacts
+
+Because we started off as a gradle project out build contains some unnecessary settings.  
+To fix that right-click the App module and select Module Settings.  
+
+Remove 'MyAppName' from 'Modules'
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 5.54.38 PM.png)
+
+Remove all except 'App:war exploded' from 'Artifacts'
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 5.55.24 PM.png)
+
+You may need to add the libraries to 'WEB-INF/lib' in the 'Output Layout' tab as pictured above but don't add gwt-dev or gwt-user as these are not needed and are too large to upload to GAE anyway.   
+
+
+#### [](#header-2)Set the welcome file
 
 Next, edit the web.xml file found in App/web/WEB-INF
 ```XML
