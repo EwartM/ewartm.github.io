@@ -190,7 +190,7 @@ Refresh the browser tab.
 
 #### [](#header-2)Client breakpoints
 
-There are two options for debugging the client code. I perosnally prefer using Chrome > More Tools > Developer Tools to debug the front-end but IntelliJ includes javascript debugging if you prefer to use that, if not just skip to the next heading in this tutorial.
+There are two options for debugging the client code. I personally prefer using Chrome > More Tools > Developer Tools to debug the front-end but IntelliJ includes javascript debugging if you prefer to use that. If you don't want to use IntelliJ for this, just skip to the next heading in this tutorial.
 
 **OPTIONAL**
 Install the Jetbrains plugin in Chrome.
