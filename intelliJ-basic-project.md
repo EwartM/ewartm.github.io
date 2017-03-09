@@ -104,16 +104,17 @@ IntelliJ should ask you whether you want to configure the Gradle wrapper. Click 
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 11.07.22 AM.png)
 
+Now do a Gradle > tasks > build to generate a SNAPSHOT.jar file containing our dependencies in the build/libs folder.
+
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 4.56.07 PM.png)
+
 #### [](#header-2)Create the application module and link it's dependencies
 
 Now let's add the application module.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.56.15%20PM.png)
 
-Check Google App Engine and browse to your local GAE SDK. Note that GAE standard only supports up to GAE SDK 1.9.42
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.56.51%20PM.png)
-
+Check Google App Engine and browse to your local GAE SDK. Note that GAE standard only supports up to GAE SDK 1.9.42  
 Check Google Web Toolkit and browse to your local GWT SDK. Note that GAE standard only supports up to GWT2.8.0beta1 
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.57.20%20PM.png)
@@ -126,27 +127,13 @@ When done right-click the App module and select Module Settings.
 
 Click **+** and then **Library** to add the dependencies from our parent module (loaded by the build.gradle) that our App module will need.  
 
-Add all libraries except the 'GWT Application Server' Libraries.
+Add all libraries except the 'GWT Application Server', gwt-dev and gwt-user Libraries.
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.59.35%20PM.png)
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.11.12 PM.png)
 
 Now you'll see the libraries listed as part of our App build.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.00.00%20PM.png)
-
-#### [](#header-2)Remove unnecessary build afrifacts
-
-Because we started off as a gradle project out build contains some unnecessary settings.  
-To fix that right-click the App module and select Module Settings.  
-
-Remove 'MyAppName' from 'Modules'
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 5.54.38 PM.png)
-
-Remove all except 'App:war exploded' from 'Artifacts'
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 5.55.24 PM.png)
-
-You may need to add the libraries to 'WEB-INF/lib' in the 'Output Layout' tab as pictured above but don't add gwt-dev or gwt-user as these are not needed and are too large to upload to GAE anyway.   
-
 
 #### [](#header-2)Set the welcome file
 
@@ -184,7 +171,6 @@ This will be the normal way of working on the code.
 #### [](#header-2)Test server breakpoints and code update
 
 You should be able to set a breakpoint in the server side code.  
-The client code doesn't support breakpoints for some reason. As a workaround you can use Chrome > More Tools > Developer Tools to debug the front-end.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.03.23%20PM.png)
 
@@ -192,13 +178,23 @@ Click the button to resume after hitting a breakpoint.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.15%20PM.png)
 
-Make some changes to the code and save.
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.36%20PM.png)
+Make some changes to the code and save. Then refresh the classes by clicking the Debug > Update button.
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.19.06 PM.png)  
+![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.04.36%20PM.png)  
 
 Refresh the browser tab.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.05.19%20PM.png)
+
+#### [](#header-2)Client breakpoints
+
+There are two options for debugging the client code. I perosnally prefer using Chrome > More Tools > Developer Tools to debug the front-end but IntelliJ includes javascript debugging if you prefer to use that, if not just skip to the next heading in this tutorial.
+
+**OPTIONAL**
+Stop the previous debug session and go to Edit configurations:
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.21.50 PM.png)
+Highlight 'app' and check the javascript debugger option.  
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.22.54 PM.png)
 
 #### [](#header-2)Debug the application on a local GAE instance
 
