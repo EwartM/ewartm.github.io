@@ -225,8 +225,6 @@ Click **+**
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.06.13%20PM.png)
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.07.02%20PM.png)
-
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.08.06%20PM.png)
 
 Run the **deploy** task. You'll need a GAE project set up to receive the application. 
