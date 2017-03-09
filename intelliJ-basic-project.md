@@ -192,11 +192,11 @@ There are two options for debugging the client code. I perosnally prefer using C
 
 **OPTIONAL**
 Install the Jetbrains plugin in Chrome.
-Stop the previous debug session and go to Edit configurations:
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.21.50 PM.png)
-Highlight 'app' and check the javascript debugger option.  
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.22.54 PM.png)
-
+Stop the previous debug session and go to Edit configurations:  
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.21.50 PM.png)  
+Highlight 'app' and check the javascript debugger option.    
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.22.54 PM.png)  
+    
 #### [](#header-2)Debug the application on a local GAE instance
 
 Select **debug** with the 'AppEngine Dev 1.9.42' task to start a local GAE server where we can test that App works.
