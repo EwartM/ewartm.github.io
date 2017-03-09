@@ -191,6 +191,7 @@ Refresh the browser tab.
 There are two options for debugging the client code. I perosnally prefer using Chrome > More Tools > Developer Tools to debug the front-end but IntelliJ includes javascript debugging if you prefer to use that, if not just skip to the next heading in this tutorial.
 
 **OPTIONAL**
+Install the Jetbrains plugin in Chrome.
 Stop the previous debug session and go to Edit configurations:
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.21.50 PM.png)
 Highlight 'app' and check the javascript debugger option.  
