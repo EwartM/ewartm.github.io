@@ -12,7 +12,7 @@
 1. **GWTP 1.5.3 Model View Presenter architecture**
 1. **Guice 3.0 Dependency Injection**
 
-[Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/225fd1480592030a7fc86d7cfeaaf35f08cf3e4e)
+[Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/0c7baec9d197da8c5af865438b992e4a6f25ed0e)
 
 #### [](#header-2)Prerequisite
 
