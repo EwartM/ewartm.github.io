@@ -130,7 +130,7 @@ Right-click the App module and select Module Settings.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.58.49%20PM.png)
 
-Click **+** and then **JARs or directories** to navigate to the build/exaploded/WEB-INF/lib folder.  
+Click **+** and then **JARs or directories** to navigate to the build/exploded/WEB-INF/lib folder.  
 Click 'Open'.   
 Click Apply.  
 
@@ -144,7 +144,7 @@ Go to 'Artifacts'. IntelliJ should warn that 'lib' is required for 'App' but is 
 
 Finally, remove gwt-dev and gwt-user from Artifacts > Output Layout tab > WEB-INF/lib (They are not needed and will cause a 'file too large' error when uploading to App Engine).  
 
-The 'lib' is missing warning will come back but just ignore it.  
+The 'lib ..is missing' warning will come back but just ignore it.  
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 11.32.15 AM.png)
 
