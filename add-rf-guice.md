@@ -25,6 +25,75 @@ Note: If you get RF errors with HTTP 500 status after cloning this repo please c
 At the end of this tutorial the project structure should look like this:
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-08 at 6.52.48 PM.png)
 
+#### [](#header-2)Add RequestFactory dependencies
+
+Add RF libraries to build.gradle.  
+
+```XML
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+// Dependency Versions
+ext{
+    gwtpVer = '1.5.3'
+    jbcryptVer = '0.3m'
+    jodaVer = '2.9.1'
+    guiceVer = '3.0'
+    hibernateVer = '4.1.0.Final'
+    sl4jVer = '1.6.1'
+    gwtqueryVer = '1.4.3'
+    requestFactoryVer = '2.8.0-beta1'
+}
+dependencies {
+    compile group: 'com.gwtplatform', name: 'gwtp-mvp-client', version: gwtpVer
+    compile group: 'org.mindrot', name: 'jbcrypt', version: jbcryptVer
+    compile group: 'joda-time', name: 'joda-time', version: jodaVer
+    compile group: 'com.google.inject', name: 'guice', version: guiceVer
+    compile group: 'com.google.inject.extensions', name: 'guice-assistedinject', version: guiceVer
+    compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: guiceVer
+    compile group: 'org.hibernate', name: 'hibernate-validator-annotation-processor', version: hibernateVer
+    compile(group: 'org.hibernate', name: 'hibernate-validator', version: hibernateVer) {
+        exclude(module: 'jaxb-api')
+        exclude(module: 'jaxb-impl')
+        exclude(module: 'slf4j-api')
+    }
+    compile(group: 'org.hibernate', name: 'hibernate-validator', version: hibernateVer, classifier:'sources') {
+        exclude(module: 'jaxb-api')
+        exclude(module: 'jaxb-impl')
+        exclude(module: 'slf4j-api')
+    }
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: sl4jVer
+    compile group: 'com.googlecode.gwtquery', name: 'gwtquery', version: gwtqueryVer
+    compile group: 'com.google.web.bindery', name: 'requestfactory-server', version: requestFactoryVer
+    compile group: 'com.google.web.bindery', name: 'requestfactory-apt', version: requestFactoryVer
+
+
+    testCompile 'junit:junit:4.11'
+}
+
+task explodedWar(type: Copy) {
+    into "$buildDir/exploded"
+    with war
+}
+
+war.dependsOn explodedWar
+```
+
+Do a Gradle > Tasks > Build > Build.  
+
+Right-click the App module and 'Open Module Settings'. Go to Artifacts > App:war exploded.  
+Click 'Fix' at the 'lib ...missing' warning.  
+Open WEB-INF/lib and remove gwt-dev and gwt-user jars. Click 'OK'.    
+
+Finally click the 'build project' button.  
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 1.03.30 PM.png)
+
+
 #### [](#header-2)Inherit RequestFactory
 
 Inherit RequestFactory in the app.gwt.mxl  
