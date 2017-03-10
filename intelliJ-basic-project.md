@@ -101,7 +101,9 @@ task explodedWar(type: Copy) {
 war.dependsOn explodedWar
 ```
 
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.54.52%20PM.png)
+![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.54.52%20PM.png)  
+
+Save all files.  
 
 IntelliJ should ask you whether you want to configure the Gradle wrapper. Click OK.
 
