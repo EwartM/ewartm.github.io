@@ -14,7 +14,7 @@ published: true
 1. Gradle
 1. IntelliJ IDEA Ultimate 2016.3
 
-[Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/78e02ba863888a433740e5056e7a641a2015de88)
+[Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/5605f135cbb9181a37bcef4ede256360b1a3c113)
 
 #### [](#header-2)Prerequisite
 
