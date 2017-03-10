@@ -13,7 +13,8 @@
 1. Guice 3.0 Dependency Injection
 1. **RequestFactory**
 
-[Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/e58392ae43eedb539a83d70d8111c5546dcf3136)
+[Github version after completing this tutorial](https://github.com/EwartM/MyAppName/tree/e58392ae43eedb539a83d70d8111c5546dcf3136)  
+Note: If you get RF errors with HTTP 500 status after cloning this repo please check that you have Annotation processing enabled as described below.
 
 #### [](#header-2)Prerequisite
 
