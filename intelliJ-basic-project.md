@@ -62,7 +62,6 @@ repositories {
 // Dependency Versions
 ext{
     gaeVer = '1.9.42'
-    requestFactoryVer = '2.8.0-beta1'
     gwtpVer = '1.5.3'
     jbcryptVer = '0.3m'
     jodaVer = '2.9.1'
@@ -72,8 +71,6 @@ ext{
     gwtqueryVer = '1.4.3'
 }
 dependencies {
-    compile group: 'com.google.web.bindery', name: 'requestfactory-server', version: requestFactoryVer
-    compile group: 'com.google.web.bindery', name: 'requestfactory-apt', version: requestFactoryVer
     compile group: 'com.gwtplatform', name: 'gwtp-mvp-client', version: gwtpVer
     compile group: 'org.mindrot', name: 'jbcrypt', version: jbcryptVer
     compile group: 'joda-time', name: 'joda-time', version: jodaVer
@@ -96,6 +93,13 @@ dependencies {
 
     testCompile 'junit:junit:4.11'
 }
+
+task explodedWar(type: Copy) {
+    into "$buildDir/exploded"
+    with war
+}
+
+war.dependsOn explodedWar
 ```
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.54.52%20PM.png)
@@ -104,7 +108,7 @@ IntelliJ should ask you whether you want to configure the Gradle wrapper. Click 
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 11.07.22 AM.png)
 
-Now do a Gradle > tasks > build to generate a SNAPSHOT.jar file containing our dependencies in the build/libs folder.
+Now do a Gradle > tasks > build to generate a folder containing our dependencies (build/exploded/WEB-INF/lib)  
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 4.56.07 PM.png)
 
