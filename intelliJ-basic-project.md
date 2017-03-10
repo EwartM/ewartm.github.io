@@ -132,13 +132,13 @@ Right-click the App module and select Module Settings.
 
 Click **+** and then **JARs or directories** to navigate to the build/exploded/WEB-INF/lib folder.  
 Click 'Open'.   
-Click Apply.  
+Click OK.  
 
-This loads the dependencies from our parent module (loaded by the build.gradle) that our App module will need. Now you'll see the gradle output folder listed as part of our App build.
+This loads the dependencies from our parent module (loaded by the build.gradle) that our App module will need. Now you'll see the gradle output folder listed as part of our App build. Wait for the task to finish.  
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 10.59.43 AM.png)
 
-Go to 'Artifacts'. IntelliJ should warn that 'lib' is required for 'App' but is missing. Click 'Fix' > 'Add 'lib' to the artifact. Click Apply.  
+Right-click the App module and select Module Settings. Go to 'Artifacts'. IntelliJ should warn that 'lib' is required for 'App' but is missing. Click 'Fix' > 'Add 'lib' to the artifact. Click Apply.  
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 11.20.48 AM.png)  
 
@@ -173,6 +173,9 @@ Next, edit the web.xml file found in App/web/WEB-INF
     </servlet-mapping>
 </web-app>
 ```
+
+Delete index.jsp found under App/web/WEB-INF.  
+
 
 #### [](#header-2)Debug the application on a local server
 
@@ -220,7 +223,7 @@ Do a Build > Build Artifacts > App:war exploded > Build to populate the output f
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 11.34.23 AM.png) 
 
-Select **debug** with the 'AppEngine Dev 1.9.42' task to start a local GAE server where we can test that App works.
+Select **debug** with the 'AppEngine Dev 1.9.42' task to start a local GAE server where we can test App on running on GAE.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.00.33%20PM.png)
 
