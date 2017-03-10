@@ -142,7 +142,7 @@ Right-click the App module and select Module Settings. Go to 'Artifacts'. Intell
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 11.20.48 AM.png)  
 
-Finally, remove gwt-dev and gwt-user from Artifacts > Output Layout tab > WEB-INF/lib (They are not needed and will cause a 'file too large' error when uploading to App Engine).  
+Finally, **remove gwt-dev and gwt-user** from Artifacts > Output Layout tab > WEB-INF/lib (They are not needed and will cause a 'file too large' error when uploading to App Engine). Do not remove gwt-servlet.  
 
 The 'lib ..is missing' warning will come back but just ignore it.  
 
