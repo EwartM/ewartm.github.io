@@ -109,7 +109,7 @@ IntelliJ should ask you whether you want to configure the Gradle wrapper. Click 
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 11.07.22 AM.png)
 
-Now do a Gradle > tasks > build to generate a folder containing our dependencies (build/exploded/WEB-INF/lib)  
+Now do a Gradle > tasks > build > build to generate a folder containing our dependencies (build/exploded/WEB-INF/lib)  
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 4.56.07 PM.png)
 
@@ -126,19 +126,19 @@ Check Google Web Toolkit and browse to your local GWT SDK. Note that GAE standar
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.57.45%20PM.png)
 
-When done right-click the App module and select Module Settings.
+Right-click the App module and select Module Settings.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.58.49%20PM.png)
 
-Click **+** and then **Library** to add the dependencies from our parent module (loaded by the build.gradle) that our App module will need.  
+Click **+** and then **JARs or directories** to navigate to the build/exaploded/WEB-INF/lib folder.  
+Click 'Open'.   
+Click OK.  
 
-Add all libraries except the 'GWT Application Server', gwt-dev and gwt-user Libraries.
+This loads the dependencies from our parent module (loaded by the build.gradle) that our App module will need. Now you'll see the gradle output folder listed as part of our App build.
 
-![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-09 at 5.11.12 PM.png)
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 10.59.43 AM.png)
 
-Now you'll see the libraries listed as part of our App build.
-
-![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.00.00%20PM.png)
+If you like you can remove the 'MyAppName' module and all artifacts except 'App:war exploded' as we won't be using these.
 
 #### [](#header-2)Set the welcome file
 
