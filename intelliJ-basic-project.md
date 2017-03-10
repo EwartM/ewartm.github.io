@@ -115,7 +115,7 @@ Now do a Gradle > tasks > build > build to generate a folder containing our depe
 
 #### [](#header-2)Create the application module and link it's dependencies
 
-Now let's add the application module.
+Now let's add the application module. File > New > Module  
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%201.56.15%20PM.png)
 
@@ -132,11 +132,15 @@ Right-click the App module and select Module Settings.
 
 Click **+** and then **JARs or directories** to navigate to the build/exaploded/WEB-INF/lib folder.  
 Click 'Open'.   
-Click OK.  
+Click Apply.  
 
 This loads the dependencies from our parent module (loaded by the build.gradle) that our App module will need. Now you'll see the gradle output folder listed as part of our App build.
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 10.59.43 AM.png)
+
+Go to 'Artifacts'. IntelliJ should warn that 'lib' is required for 'App' but is missing. Click 'Fix' > 'Add 'lib' to the artifact. Click Apply.  
+
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 11.20.48 AM.png)  
 
 If you like you can remove the 'MyAppName' module and all artifacts except 'App:war exploded' as we won't be using these.
 
