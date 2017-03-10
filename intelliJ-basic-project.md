@@ -216,6 +216,10 @@ Highlight 'app' and check the javascript debugger option.
     
 #### [](#header-2)Debug the application on a local GAE instance
 
+Do a Build > Build Artifacts > App:war exploded > Build to populate the output folder with our dependencies. You should only have to redo this step when your build.gradle changes.  
+
+![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 11.34.23 AM.png) 
+
 Select **debug** with the 'AppEngine Dev 1.9.42' task to start a local GAE server where we can test that App works.
 
 ![]({{ site.baseurl }}/assets/images/Screen%20Shot%202017-03-01%20at%202.00.33%20PM.png)
