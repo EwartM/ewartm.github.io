@@ -61,7 +61,6 @@ repositories {
 }
 // Dependency Versions
 ext{
-    gaeVer = '1.9.42'
     gwtpVer = '1.5.3'
     jbcryptVer = '0.3m'
     jodaVer = '2.9.1'
