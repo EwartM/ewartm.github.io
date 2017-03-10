@@ -148,7 +148,7 @@ The 'lib ..is missing' warning will come back but just ignore it.
 
 ![]({{ site.baseurl }}/assets/images/Screen Shot 2017-03-10 at 11.32.15 AM.png)
 
-If you like you can remove the 'MyAppName' module and all artifacts except 'App:war exploded' as we won't be using these.
+If you like you can also remove the 'MyAppName' module and all artifacts other than 'App:war exploded'.  
 
 #### [](#header-2)Set the welcome file
 
